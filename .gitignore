@@ -1,0 +1,4 @@
+# Python virtualenv and caches, as well as exported member data
+.venv
+__pycache__
+Trinket.csv
