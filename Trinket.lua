@@ -9,7 +9,7 @@ Trinket.GuildMemberList.Data = nil
 function Trinket.FormatDate(secondsAgo)
 
     local currentTime = os.time()
-    local offsetSecondsFromUtc = 60 * 60 * 3
+    local offsetSecondsFromUtc = 60 * 60 * 2
     local timeThen = currentTime - secondsAgo - offsetSecondsFromUtc
     return os.date('%Y-%m-%d %H:%M:%S', timeThen)
 

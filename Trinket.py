@@ -47,19 +47,17 @@ class Trinket(object):
             self.luatree = ast.parse(luastring)
 
     def process_field(self, field: astnodes.Field) -> None:
-        if not hasattr(field.key, 'n'):
-            return
         self.memberdata.append(Member(
             # note=field.value.fields[0].value.s,
-            rank=field.value.fields[1].value.s,
+            rank=field.value.fields[3].value.s,
             username=field.value.fields[2].value.s,
-            online=field.value.fields[3].value.s
+            online=field.value.fields[1].value.s
         ))
 
     def process(self) -> None:
         total_processed: int = 0
         for node in ast.walk(self.luatree):
-            if isinstance(node, astnodes.Field):
+            if isinstance(node, astnodes.Field) and hasattr(field.key, 'n'):
                 self.process_field(node)
                 total_processed += 1
         print(f'Processed total {total_processed} nodes')
